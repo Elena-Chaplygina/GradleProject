@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "io.freefair.lombok" version "8.10.2"
 }
 
 group = 'org.example'
@@ -14,7 +15,9 @@ def restAssuredVersion = "5.5.0",
     allureRestAssuredVersion = "2.29.0",
     allureVersion = "2.29.0",
     slf4jVersion = "2.0.16",
-    junitVersion = "5.11.0"
+    junitVersion = "5.11.0",
+    assertVersion = "3.26.3",
+    lombokVersion = "1.18.34"
 
 
 dependencies {
@@ -26,8 +29,10 @@ dependencies {
             "org.junit.jupiter:junit-jupiter:$junitVersion",
             "io.qameta.allure:allure-junit5:$allureVersion",
             "io.rest-assured:rest-assured:$restAssuredVersion",
+            "org.assertj:assertj-core:$assertVersion",
             "org.slf4j:slf4j-simple:$slf4jVersion"
     )
+    compileOnly("org.projectlombok:lombok:$lombokVersion")
 
 }
 
