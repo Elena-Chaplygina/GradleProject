@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "io.freefair.lombok" version "8.10.2"
+    id 'io.qameta.allure' version '2.12.0'
 }
 
 group = 'org.example'
@@ -44,5 +45,20 @@ tasks.register('smoke', Test) {
         includeTags("smoke")
     }
 }
+allure {
+    report {
+        version.set("2.18.0")
+    }
 
+    adapter {
+        aspectjWeaver.set(true)
+        aspectjVersion.set("1.9.7")
+
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.18.0")
+            }
+        }
+    }
+}
 

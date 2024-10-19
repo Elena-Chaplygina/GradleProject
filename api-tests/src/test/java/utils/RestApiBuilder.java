@@ -1,5 +1,6 @@
 package utils;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.config.HttpClientConfig;
 import io.restassured.config.RestAssuredConfig;
@@ -15,6 +16,7 @@ public class RestApiBuilder {
 
     static {
         RestAssured.filters(new RequestLoggingFilter(System.out), new ResponseLoggingFilter(System.out));
+        RestAssured.filters(new AllureRestAssured());
         RestAssured.baseURI = "http://9b142cdd34e.vps.myjino.ru:49268";
     }
 

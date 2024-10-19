@@ -2,7 +2,9 @@ import assertions.BasicAssert;
 import assertions.CartAssert;
 import endpoints.AuthApi;
 import endpoints.CartApi;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -31,5 +33,9 @@ public class CartTests {
         Response response = cartApi.addCart(1, 2);
         CartAssert.assertThat(response).checkCartSuccessMessage();
 
+    }
+    @AfterAll
+    public static void tearDown() {
+        RestAssured.reset();
     }
 }
