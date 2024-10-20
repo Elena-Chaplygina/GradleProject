@@ -17,9 +17,3 @@
 ```
 ./gradlew :ui-tests:test
 ```
-
-- только Smoke-тесты обоих модулей (по тэгу «smoke»)
-
-```
-./gradlew clean smoke
-```
