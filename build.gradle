@@ -36,15 +36,6 @@ test {
     useJUnitPlatform()
 }
 
-tasks.register('smoke', Test) {
-    testLogging {
-        events "passed", "skipped", "failed", "standardOut", "standardError"
-        exceptionFormat "full"
-    }
-    useJUnitPlatform {
-        includeTags("smoke")
-    }
-}
 allure {
     report {
         version.set("2.18.0")

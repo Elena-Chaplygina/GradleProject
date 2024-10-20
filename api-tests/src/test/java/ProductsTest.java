@@ -2,9 +2,7 @@ import assertions.BasicAssert;
 import assertions.ProductsAssert;
 import endpoints.AuthApi;
 import endpoints.ProductsApi;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,7 +17,6 @@ public class ProductsTest {
         String token = AuthApi.loginUser("string", "string").jsonPath().getString("access_token");
         productsApi = new ProductsApi(token);
     }
-
 
     @DisplayName("Проверка получения списка продуктов")
     @Test
@@ -38,13 +35,8 @@ public class ProductsTest {
     @DisplayName("Проверка добавления продукта")
     @Test
     void verifyProductAdded() {
-        Response response = productsApi.addNewProduct("Laptop",6,10,"Electronics");
+        Response response = productsApi.addNewProduct("Laptop", 6, 10, "Electronics");
         BasicAssert.assertThat(response).statusCodeIsEqual(201);
-    }
-
-    @AfterAll
-    public static void tearDown() {
-        RestAssured.reset();
     }
 }
 

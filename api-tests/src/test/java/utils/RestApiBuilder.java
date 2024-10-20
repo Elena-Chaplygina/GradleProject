@@ -27,7 +27,7 @@ public class RestApiBuilder {
                         .config()
                         .httpClient(HttpClientConfig
                                 .httpClientConfig()
-                                .setParam("http.connection.timeout", 5000)
+//                                .setParam("http.connection.timeout", 5000)
                         )
                 )
                 .relaxedHTTPSValidation();

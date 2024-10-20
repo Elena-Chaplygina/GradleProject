@@ -6,7 +6,7 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class CheckboxesPage {
-    SelenideElement        checkboxesTitle = $x("//h3[text()='Checkboxes']"),
+    SelenideElement checkboxesTitle = $x("//h3[text()='Checkboxes']"),
             checkboxFirst = $x("//form[@id='checkboxes']/input[@type='checkbox'][1]"),
             checkboxSecond = $x("//form[@id='checkboxes']/input[@type='checkbox'][2]");
 
